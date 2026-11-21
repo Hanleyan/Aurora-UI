@@ -1,40 +1,78 @@
 # Aurora-UI
 
-一个基于 TypeScript、CSS-in-JS 和 Design Tokens 的跨项目设计系统基础设施。
-
-## 简介
-
-Aurora-UI 致力于为多项目场景提供统一、可扩展且易维护的设计系统基础能力。项目采用类型安全的 TypeScript，并结合 CSS-in-JS 与设计令牌（Design Tokens），帮助团队在保持视觉一致性的同时，灵活适配不同业务需求。
+一个基于 React 19、TypeScript、CSS-in-JS 和 Design Tokens 的跨项目设计系统基础设施。
 
 ## 特性
 
-- 基于 TypeScript 的类型安全开发体验
+- 基于 React 19 和 TypeScript 的类型安全组件
 - 使用 CSS-in-JS 构建可组合、可主题化的组件样式
-- 通过 Design Tokens 管理颜色、字号、间距、圆角等设计变量
-- 支持跨项目复用和统一版本管理
-- 面向可维护性、可扩展性和一致性设计
+- 通过 Design Tokens 管理颜色、字号、间距和圆角
+- 支持作为独立 npm 包发布
+- 包含独立 Vite 文档站与 Jest 组件测试
 
-## 技术栈
+## 安装
 
-- TypeScript
-- CSS-in-JS
-- Design Tokens
+```bash
+npm install @aurora-ui/react react react-dom
+```
 
-具体依赖、构建工具和运行方式将在项目结构完善后补充。
+## 使用
+
+```tsx
+import { Button, Card, auroraTokens } from '@aurora-ui/react';
+
+export function Example() {
+  return (
+    <Card title="快速开始">
+      <Button variant="primary">开始使用</Button>
+      <span>{auroraTokens.color.primary}</span>
+    </Card>
+  );
+}
+```
+
+## 开发
+
+要求 Node.js 20 或更高版本。
+
+```bash
+npm install
+npm run test
+npm run build:package
+npm run docs
+```
+
+包构建产物位于 `dist/`。
+
+## 文档站
+
+```bash
+npm run docs
+```
+
+默认地址为 `http://localhost:5174`。
 
 ## 项目结构
 
-当前仓库正在初始化阶段，后续会逐步补充组件、主题、工具包和示例应用等目录。
+```text
+src/
+  components/  可复用 React 组件
+  tokens.ts    Design Tokens
+  theme.tsx    CSS Variables 与主题工具
+  index.ts     包入口
+docs/          独立 Vite 文档站
+test/          Jest 与 React Testing Library 测试
+```
 
 ## 开发计划
 
-- [ ] 完善项目目录结构
-- [ ] 定义基础 Design Tokens
-- [ ] 建立主题与样式管理机制
-- [ ] 实现基础组件
-- [ ] 添加组件示例与文档
-- [ ] 配置测试和构建流程
-- [ ] 发布并管理包版本
+- [x] 完善项目目录结构
+- [x] 定义基础 Design Tokens
+- [x] 建立主题与样式管理机制
+- [x] 实现基础组件
+- [x] 添加组件示例与文档
+- [x] 配置测试和构建流程
+- [ ] 发布并管理 npm 包版本
 
 ## 贡献
 
@@ -49,4 +87,4 @@ Aurora-UI 致力于为多项目场景提供统一、可扩展且易维护的设�
 
 ## 许可证
 
-许可证信息将在项目正式开源时补充。
+MIT
